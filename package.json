@@ -1,6 +1,6 @@
 {
   "name": "guld-ledger-cli",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Guld ledger.",
   "bin": {
     "guld-ledger": "./cli.js"
