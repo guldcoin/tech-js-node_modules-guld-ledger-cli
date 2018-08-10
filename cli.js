@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 const program = require('commander')
+const path = require('path')
+const home = require('user-home')
 const VERSION = require('./package.json').version
-const { cache } = require('guld-ledger') /* , balance */
+const { cacheJournal, setJournal } = require('guld-ledger-cache')
+var { Account } = require('ledger-types')
 
 /* eslint-disable no-console */
 program
@@ -12,22 +15,23 @@ program
     if (n) process.env.GULDNAME = global.GULDNAME = n
     return true
   })
-/*
-  .command('balance [file] [query]')
+  .command('balance [account] [...subaccounts]')
   .alias('bal')
   .description('Reports the current balance of all accounts matching the query.')
-  .action(async function (file = cache.LEDGERPATH, query, options) {
-    balance(file).then(console.log).catch(e => {
-      console.error(e)
-      process.exit(1)
-    })
+  .action(async function (account, subaccounts, options) {
+    account = account || process.env.GULDNAME
+    var file = path.join(home, 'ledger', 'equity.cache')
+    var acct = Account.createFromEquity(await file.readFile(file, 'utf-8'))
+    if (acct && acct.hasOwnProperty(account)) {
+      console.log(acct[account])
+    }
   })
 program
-*/
   .command('cache [path]')
   .description('Cache all ledger files found (recursively) in the given path or $HOME/ledger.')
-  .action(async function (p = cache.LEDGERDIR, options) {
-    cache.includeJournal(p).then(console.log('Ok.')).catch(e => {
+  .action(async function (p = path.join(home, 'ledger'), options) {
+    await setJournal('')
+    cacheJournal(p).then(console.log('Ok.')).catch(e => {
       console.error(e)
       process.exit(1)
     })

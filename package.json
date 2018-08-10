@@ -20,7 +20,8 @@
   "license": "MIT",
   "dependencies": {
     "commander": "^2.16.0",
-    "guld-ledger": "^1.1.0"
+    "guld-ledger": "^1.1.0",
+    "user-home": "^2.0.0"
   },
   "devDependencies": {
     "eslint": "^5.1.0",
