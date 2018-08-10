@@ -21,6 +21,8 @@
   "dependencies": {
     "commander": "^2.16.0",
     "guld-ledger": "^1.1.0",
+    "guld-ledger-cache": "^0.1.1",
+    "ledger-types": "^2.0.4",
     "user-home": "^2.0.0"
   },
   "devDependencies": {
