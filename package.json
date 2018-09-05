@@ -1,7 +1,7 @@
 {
   "name": "guld-ledger-cli",
-  "version": "0.1.10",
-  "description": "Guld ledger.",
+  "version": "0.2.2",
+  "description": "Guld ledger extras.",
   "bin": {
     "guld-ledger": "./cli.js"
   },
@@ -19,7 +19,11 @@
   "author": "isysd",
   "license": "MIT",
   "dependencies": {
-    "commander": "^2.16.0"
+    "commander": "^2.16.0",
+    "guld-ledger": "^1.0.10",
+    "guld-ledger-cache": "^1.5.0",
+    "ledger-types": "^2.2.1",
+    "user-home": "^2.0.0"
   },
   "devDependencies": {
     "eslint": "^5.1.0",
@@ -39,7 +43,7 @@
   "engines": {
     "node": ">=7"
   },
-  "homepage": "https://github.com/isysd/tech-js-node_modules-guld-ledger-cli#readme",
+  "homepage": "https://bitbucket.org/isysd/tech-js-node_modules-guld-ledger-cli#readme",
   "preferGlobal": true,
-  "repository": "git@github.com:isysd/tech-js-node_modules-guld-ledger-cli.git"
+  "repository": "git@bitbucket.org:isysd/tech-js-node_modules-guld-ledger-cli.git"
 }
